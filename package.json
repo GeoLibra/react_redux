@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --config webpack.dev.js"
+    "start": "webpack-dev-server --config webpack.dev.js",
+    "dev": "node bin/dev-server"
   },
   "keywords": [
     "react",
@@ -24,9 +25,15 @@
     "babel-preset-stage-0": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "html-webpack-plugin": "^3.2.0",
+    "react-hot-loader": "^4.1.3",
     "webpack": "^4.8.1",
     "webpack-cli": "^2.1.3",
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2"
   }
 }

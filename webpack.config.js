@@ -9,7 +9,7 @@ module.exports={
         filename:'bundle.[hash:4].js',
         path:path.resolve('dist')
     },
-    mode: 'production',
+    mode: 'development',
     plugins:[
         new HtmlWebpackPlugin({
             template:'./src/index.html',
@@ -18,8 +18,7 @@ module.exports={
         //热更新,不是刷新
         new webpack.HotModuleReplacementPlugin(),
         //打包前先清空
-        new CleanWebpackPlugin('dist'),
-        new webpack.HotModuleReplacementPlugin()  //查看要修补(patch)的依赖
+        new CleanWebpackPlugin('dist')
     ],
     module:{
         rules:[

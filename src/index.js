@@ -1,6 +1,14 @@
-document.querySelector('#root').innerHTML = '<h2>佳佳复试顺利,最棒的!!</h2>';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+import App from './App';
+ReactDOM.render(
+    <AppContainer>
+        <App/>
+    </AppContainer>,
+    document.getElementById('main')
+);
 
-if (module.hot){
-    //实现热更新
+if (module.hot) {
     module.hot.accept();
 }
