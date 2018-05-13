@@ -6,7 +6,7 @@ ReactDOM.render(
     <AppContainer>
         <App/>
     </AppContainer>,
-    document.getElementById('main')
+    document.getElementById('root')
 );
 
 if (module.hot) {
