@@ -9,15 +9,7 @@ module.exports={
         filename:'bundle.[hash:4].js',
         path:path.resolve('dist')
     },
-    //以下是新增的配置
-    devServer:{
-        contentBase: "./dist",//本地服务器所加载的页面所在的目录
-        historyApiFallback: true,//不跳转
-        inline: true,//实时刷新
-        port:3000,
-        open:true,//自动打开浏览器
-        hot:true  //开启热更新
-    },
+    mode: 'production',
     plugins:[
         new HtmlWebpackPlugin({
             template:'./src/index.html',
@@ -26,7 +18,8 @@ module.exports={
         //热更新,不是刷新
         new webpack.HotModuleReplacementPlugin(),
         //打包前先清空
-        new CleanWebpackPlugin('dist')
+        new CleanWebpackPlugin('dist'),
+        new webpack.HotModuleReplacementPlugin()  //查看要修补(patch)的依赖
     ],
     module:{
         rules:[
