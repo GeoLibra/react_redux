@@ -21,6 +21,12 @@ module.exports={
     module:{
         rules:[
             {
+                test:/\.(png|jpg|gif)$/,
+                use:[
+                    "url-loader"
+                ]
+            },
+            {
                 test:/\.js$/,
                 exclude:/(node_modules)/,  //排除掉nod_modules,优化打包速度
                 use:{

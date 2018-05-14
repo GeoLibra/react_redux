@@ -1,3 +1,4 @@
+
 const merge=require('webpack-merge');
 const path=require('path');
 let webpack=require('webpack');
@@ -18,4 +19,17 @@ module.exports=merge(common,{
         //热更新,不是刷新
         new webpack.HotModuleReplacementPlugin(),
     ],
+    module:{
+        rules:[
+            {
+                test:/\.scss$/,
+                use:[
+
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            }
+        ]
+    }
 });

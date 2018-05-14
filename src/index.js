@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import App from './App';
+import AppleItem from './components/AppleItem';
 ReactDOM.render(
     <AppContainer>
-        <App/>
+        <AppleItem/>
     </AppContainer>,
-    document.getElementById('main')
+    document.getElementById('root')
 );
 
 if (module.hot) {
