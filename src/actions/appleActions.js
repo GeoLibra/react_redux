@@ -1,5 +1,5 @@
-import ajax from '../services/ajax';
 //命名空间,对普通action做划分
+import React from 'react';
 const prefix='apple/';
 
 let actions={
@@ -11,13 +11,16 @@ let actions={
         //通知开始摘苹果
         dispatch(actions.beginPickApple());
         //发送摘苹果请求
-        ajax({
-            url:'/appleBasket/pickApple',
-            method:'GET'
-        }).done(data=>{
-            dispatch(actions.donePickApple(data.weight));
-        }).fail(error=>{
-            dispatch(actions.failPickApple(error));
+        fetch('https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',{mode:'no-cors'})
+            .then(res => {
+                if (res.status != 200) dispatch(actions.failPickApple(res.statusText));
+
+                /** 备注这里的url只是测试用的，这个是之前hackernews的api, 这里只是确保接口是通的，至于数据还是自己mock */
+                let weight = Math.floor(200 + Math.random() * 50);
+                dispatch(actions.donePickApple(weight));
+                console.log('摘苹果');
+            }).catch(e => {
+            dispatch(actions.failPickApple(e.statusText));
         });
     },
     beginPickApple:()=>({
